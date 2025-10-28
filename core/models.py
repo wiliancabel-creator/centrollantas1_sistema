@@ -7,14 +7,13 @@ from decimal import Decimal
 
 # 1. Usuario personalizado
 class Usuario(AbstractUser):
-    def get_roles():
+  def get_roles():
+    try:
+        from django.contrib.auth.models import Group
         return [(g.name.lower(), g.name) for g in Group.objects.all()]
-
-    rol = models.CharField(max_length=50, choices=get_roles, blank=True, null=True)
-
-    def __str__(self):
-        return self.username
-
+    except:
+        return [('vendedor', 'Vendedor'), ('admin', 'Administrador')]
+        
 
 # 2. Cliente
 class Cliente(models.Model):
