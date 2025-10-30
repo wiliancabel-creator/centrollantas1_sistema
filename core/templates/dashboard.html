@@ -2,114 +2,153 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<div class="contenedor dashboard-container">
+<div class="container my-4">
 
   <!-- 🔢 TARJETAS DE ESTADÍSTICAS -->
-  <div class="dashboard-cards">
+  <div class="row g-3 justify-content-center">
     {% if perms.core.add_venta %}
-      <div class="dashboard-card card-ventas">
-        <h4>Ventas Hoy</h4>
-        <p>L {{ ventas_hoy }}</p>
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-ventas text-center">
+          <h5>Ventas Hoy</h5>
+          <p>L {{ ventas_hoy }}</p>
+        </div>
       </div>
 
-      <div class="dashboard-card card-compras">
-        <h4>Compras Hoy</h4>
-        <p>L {{ compras_hoy }}</p>
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-compras text-center">
+          <h5>Compras Hoy</h5>
+          <p>L {{ compras_hoy }}</p>
+        </div>
       </div>
 
-      <div class="dashboard-card card-productos">
-        <h4>Productos Vendidos Hoy</h4>
-        <p>{{ productos_vendidos_hoy }}</p>
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-productos text-center">
+          <h5>Productos Vendidos Hoy</h5>
+          <p>{{ productos_vendidos_hoy }}</p>
+        </div>
       </div>
 
-      <div class="dashboard-card card-productos-compra">
-        <h4>Productos Comprados Hoy</h4>
-        <p>{{ productos_comprados_hoy }}</p>
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-productos-compra text-center">
+          <h5>Productos Comprados Hoy</h5>
+          <p>{{ productos_comprados_hoy }}</p>
+        </div>
       </div>
     {% endif %}
 
-    {% if perms.core.add_venta %}
-      {% if perms.core.delete_cai %}
-        <div class="dashboard-card card-simple">
-          <h4>Total Ventas</h4>
+    {% if perms.core.add_venta and perms.core.delete_cai %}
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-simple text-center">
+          <h5>Total Ventas</h5>
           <p>L {{ total_ventas }}</p>
         </div>
-        <div class="dashboard-card card-simple">
-          <h4>Total Compras</h4>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3">
+        <div class="dashboard-card card-simple text-center">
+          <h5>Total Compras</h5>
           <p>L {{ total_compras }}</p>
         </div>
-      {% endif %}
+      </div>
     {% endif %}
 
-    <div class="dashboard-card card-simple">
-      <h4>Total Productos</h4>
-      <p>{{ total_productos }}</p>
+    <div class="col-6 col-sm-4 col-md-3">
+      <div class="dashboard-card card-simple text-center">
+        <h5>Total Productos</h5>
+        <p>{{ total_productos }}</p>
+      </div>
     </div>
 
-    <div class="dashboard-card card-clientes">
-      <h4>Total Clientes</h4>
-      <p>{{ total_clientes }}</p>
+    <div class="col-6 col-sm-4 col-md-3">
+      <div class="dashboard-card card-clientes text-center">
+        <h5>Total Clientes</h5>
+        <p>{{ total_clientes }}</p>
+      </div>
     </div>
 
-    <div class="dashboard-card card-simple">
-      <h4>Total Proveedores</h4>
-      <p>{{ total_proveedores }}</p>
+    <div class="col-6 col-sm-4 col-md-3">
+      <div class="dashboard-card card-simple text-center">
+        <h5>Total Proveedores</h5>
+        <p>{{ total_proveedores }}</p>
+      </div>
     </div>
   </div>
 
   <!-- ⚡ ACCESOS RÁPIDOS -->
-  <div class="dashboard-access">
-    <h3>⚡ Accesos Rápidos</h3>
-    <div class="quick-access">
+  <div class="mt-5">
+    <h4 class="text-center mb-3">⚡ Accesos Rápidos</h4>
+    <div class="row g-2 justify-content-center text-center">
       {% if perms.core.view_venta %}
-        <a href="{% url 'dashboard_graficos' %}" class="btn">📊 Gráficas</a>
-        <a href="{% url 'resumen_ventas' %}" class="btn btn-outline-light">📋 Ver Ventas</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'dashboard_graficos' %}" class="btn btn-primary w-100">📊 Gráficas</a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'resumen_ventas' %}" class="btn btn-outline-light w-100">📋 Ver Ventas</a>
+        </div>
       {% endif %}
 
       {% if perms.core.add_compra %}
-        <a href="{% url 'crear_compra' %}" class="btn">📥 Nueva Compra</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'crear_compra' %}" class="btn btn-primary w-100">📥 Nueva Compra</a>
+        </div>
       {% endif %}
 
       {% if perms.core.view_compra %}
-        <a href="{% url 'resumen_compras' %}" class="btn btn-outline-light">📄 Ver Compras</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'resumen_compras' %}" class="btn btn-outline-light w-100">📄 Ver Compras</a>
+        </div>
       {% endif %}
 
       {% if perms.core.add_producto %}
-        <a href="{% url 'agregar_producto' %}" class="btn">➕ Nuevo Producto</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'agregar_producto' %}" class="btn btn-primary w-100">➕ Nuevo Producto</a>
+        </div>
       {% endif %}
 
       {% if perms.core.view_cuentaporcobrar or perms.core.view_cuentaporpagar %}
-        <a href="{% url 'resumen_cuentas' %}" class="btn btn-outline-light">💸 Cobrar y Pagar</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'resumen_cuentas' %}" class="btn btn-outline-light w-100">💸 Cobrar y Pagar</a>
+        </div>
       {% endif %}
 
       {% if perms.core.add_cliente %}
-        <a href="{% url 'crear_cliente' %}" class="btn">👤 Nuevo Cliente</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'crear_cliente' %}" class="btn btn-primary w-100">👤 Nuevo Cliente</a>
+        </div>
       {% endif %}
 
       {% if perms.core.view_cliente %}
-        <a href="{% url 'listar_clientes' %}" class="btn btn-outline-light">👥 Ver Clientes</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'listar_clientes' %}" class="btn btn-outline-light w-100">👥 Ver Clientes</a>
+        </div>
       {% endif %}
 
       {% if perms.core.add_proveedor %}
-        <a href="{% url 'registrar_proveedor' %}" class="btn">🏭 Nuevo Proveedor</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'registrar_proveedor' %}" class="btn btn-primary w-100">🏭 Nuevo Proveedor</a>
+        </div>
       {% endif %}
 
       {% if perms.core.view_proveedor %}
-        <a href="{% url 'lista_proveedores' %}" class="btn btn-outline-light">🏢 Ver Proveedores</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'lista_proveedores' %}" class="btn btn-outline-light w-100">🏢 Ver Proveedores</a>
+        </div>
       {% endif %}
 
       {% if perms.core.view_cai %}
-        <a href="{% url 'listar_cai' %}" class="btn btn-outline-light">📋 Cais</a>
+        <div class="col-6 col-sm-4 col-md-3">
+          <a href="{% url 'listar_cai' %}" class="btn btn-outline-light w-100">📋 Cais</a>
+        </div>
       {% endif %}
     </div>
   </div>
 
   <!-- 📈 TENDENCIAS -->
-  <div class="tendencias">
-    <h3>📈 Tendencias</h3>
-    <p class="text-muted"></p>
+  <div class="mt-5 text-center">
+    <h4>📈 Tendencias</h4>
   </div>
 
 </div>
 {% endblock %}
+
 
