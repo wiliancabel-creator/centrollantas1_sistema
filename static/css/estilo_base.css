@@ -650,6 +650,334 @@ html, body {
 
 
 
+/* === MÓVIL HORIZONTAL - LAYOUT DE VENTA 4 COLUMNAS === */
+@media (max-width: 926px) and (orientation: landscape) {
+  /* Layout de venta en horizontal - 4 COLUMNAS VISIBLES */
+  .venta-layout {
+    grid-template-columns: 120px 240px 1fr 120px !important;
+    gap: 6px !important;
+    padding: 5px 2px !important;
+  }
+
+  
+
+  .venta-layout > .panel-rapido:first-child,
+  .venta-layout > .panel-rapido:last-child {
+    max-width: 120px !important;
+    padding: 0 2px !important;
+  }
+
+  .venta-layout > .panel-sombreado:first-of-type {
+    max-width: 240px !important;
+    padding: 10px !important;
+  }
+
+  /* Botones laterales más pequeños */
+  .venta-layout .panel-rapido .btn {
+    font-size: 9px !important;
+    padding: 4px 2px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .venta-layout .panel-rapido h6 {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  
+  /* Panel de búsqueda/cliente compacto */
+  .venta-layout > .panel-sombreado:first-of-type h3 {
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .venta-layout > .panel-sombreado:first-of-type label {
+    font-size: 11px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .venta-layout > .panel-sombreado:first-of-type input,
+  .venta-layout > .panel-sombreado:first-of-type select {
+    padding: 5px !important;
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .venta-layout > .panel-sombreado:first-of-type .btn {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+  }
+
+  /* Tabla de productos optimizada */
+  .venta-layout .productos-box {
+    max-height: 50vh !important;
+    padding: 6px !important;
+  }
+
+  .venta-layout .form-row {
+    padding: 5px !important;
+    gap: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .venta-layout .form-row input {
+    font-size: 12px !important;
+    padding: 5px !important;
+  }
+
+  /* Navbar compacto en horizontal */
+  .navbar {
+    padding: 0.3rem 0.6rem !important;
+    min-height: 42px !important;
+  }
+
+  .navbar-brand {
+    font-size: 0.85rem !important;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.8rem !important;
+    padding: 5px 8px !important;
+  }
+
+  /* Contenedor ajustado */
+  .contenedor {
+    margin: 3px 0 !important;
+    padding: 8px 3px !important;
+  }
+}
+
+/* === LAYOUT COTIZACIONES - 3 COLUMNAS OPTIMIZADO === */
+
+/* Contenedor principal SOLO para cotizaciones */
+.cotizacion-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 140px;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 5px;
+  align-items: start;
+}
+
+/* Columna izquierda - Búsqueda y cliente */
+.cotizacion-layout .columna-izquierda {
+  max-width: 240px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+}
+
+.cotizacion-layout .columna-izquierda h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.cotizacion-layout .columna-izquierda label {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.cotizacion-layout .columna-izquierda input,
+.cotizacion-layout .columna-izquierda select {
+  font-size: 13px;
+  padding: 6px;
+  margin-bottom: 8px;
+}
+
+.cotizacion-layout .columna-izquierda .btn {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* Columna centro - Productos (ocupa todo el espacio) */
+.cotizacion-layout .columna-centro {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+}
+
+.cotizacion-layout .columna-centro h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.cotizacion-layout #form-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Columna derecha - Accesos rápidos */
+.cotizacion-layout .columna-derecha {
+  max-width: 140px;
+  text-align: center;
+  padding: 0 3px;
+}
+
+.cotizacion-layout .columna-derecha h6 {
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #d0d0d0;
+}
+
+.cotizacion-layout .columna-derecha .btn {
+  width: 100%;
+  font-size: 11px;
+  padding: 6px 4px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
+
+/* Modo claro - Cotizaciones */
+body.light-mode .cotizacion-layout .columna-izquierda,
+body.light-mode .cotizacion-layout .columna-centro {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .cotizacion-layout .columna-derecha h6 {
+  color: #212529;
+  font-weight: 600;
+}
+
+body.light-mode .cotizacion-layout #form-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* === RESPONSIVE COTIZACIONES === */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .cotizacion-layout {
+    grid-template-columns: 220px 1fr 130px;
+    gap: 8px;
+  }
+
+  .cotizacion-layout .columna-izquierda {
+    max-width: 220px;
+    padding: 12px;
+  }
+
+  .cotizacion-layout .columna-derecha {
+    max-width: 130px;
+  }
+
+  .cotizacion-layout .columna-derecha .btn {
+    font-size: 10px;
+    padding: 5px 3px;
+  }
+}
+
+/* Móvil vertical */
+@media (max-width: 768px) {
+  .cotizacion-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cotizacion-layout .columna-izquierda,
+  .cotizacion-layout .columna-centro,
+  .cotizacion-layout .columna-derecha {
+    max-width: 100%;
+  }
+
+  .cotizacion-layout .columna-derecha {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .cotizacion-layout .columna-derecha h6 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Móvil horizontal */
+@media (max-width: 926px) and (orientation: landscape) {
+  .cotizacion-layout {
+    grid-template-columns: 200px 1fr 120px !important;
+    gap: 6px !important;
+    padding: 5px 2px !important;
+  }
+
+  .cotizacion-layout .columna-izquierda {
+    max-width: 200px !important;
+    padding: 8px !important;
+  }
+
+  .cotizacion-layout .columna-izquierda h4 {
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .cotizacion-layout .columna-izquierda label {
+    font-size: 10px !important;
+  }
+
+  .cotizacion-layout .columna-izquierda input,
+  .cotizacion-layout .columna-izquierda select {
+    font-size: 11px !important;
+    padding: 4px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .cotizacion-layout .columna-izquierda .btn {
+    font-size: 11px !important;
+    padding: 5px 8px !important;
+  }
+
+  .cotizacion-layout .columna-centro {
+    padding: 8px !important;
+  }
+
+  .cotizacion-layout .columna-centro h4 {
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .cotizacion-layout #form-container {
+    max-height: 45vh !important;
+    padding: 6px !important;
+  }
+
+  .cotizacion-layout .columna-derecha {
+    max-width: 120px !important;
+  }
+
+  .cotizacion-layout .columna-derecha h6 {
+    font-size: 10px !important;
+  }
+
+  .cotizacion-layout .columna-derecha .btn {
+    font-size: 9px !important;
+    padding: 4px 2px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .cotizacion-layout .form-row {
+    padding: 5px !important;
+    gap: 5px !important;
+    font-size: 11px !important;
+  }
+}
+
+
+
 
 
 
