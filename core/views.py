@@ -46,6 +46,7 @@ def buscar_producto(request):
         return JsonResponse({'encontrado': False})
 
 
+from django.core.paginator import Paginator
 
 @login_required
 @permission_required('core.view_producto', raise_exception=True)
@@ -65,15 +66,22 @@ def listar_productos(request):
 
     if categoria_id:
         productos = productos.filter(categoria_id=categoria_id)
-    
+
+    # Agregamos paginación, por ejemplo 15 productos por página
+    paginator = Paginator(productos, 15)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     categorias = Categoria.objects.all().order_by('nombre')
 
     return render(request, 'productos/listar_productos.html', {
-        'productos': productos,
+        'page_obj': page_obj,
         'categorias': categorias,
         'categoria_seleccionada': categoria_id,
         'query': query
     })
+
+
 
 
 
